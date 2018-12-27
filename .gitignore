@@ -30,6 +30,7 @@ core
 
 # dependency files - anywhere
 *.dep
+*.swp
 
 # lnInclude (symlink) folders - anywhere
 lnInclude
