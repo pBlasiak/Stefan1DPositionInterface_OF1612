@@ -1,8 +1,8 @@
-IOdictionary transportProperties
+IOdictionary Stefan1DInterfacePositionDict
 (
 	IOobject
 	(
-		"transportProperties",
+		"Stefan1DInterfacePositionDict",
 		runTime.constant(),
 		mesh,
 		IOobject::MUST_READ_IF_MODIFIED,
@@ -11,6 +11,6 @@ IOdictionary transportProperties
 );
 
 // Phase change type
-word phaseChangeType(transportProperties.lookup("phaseChangeType"));
+word phaseChangeType(Stefan1DInterfacePositionDict.lookup("phaseChangeType"));
 // Wall temperature
-dimensionedScalar Tw(transportProperties.lookup("Tw"));
+dimensionedScalar Tw(Stefan1DInterfacePositionDict.lookup("Tw"));

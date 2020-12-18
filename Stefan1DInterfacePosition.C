@@ -109,6 +109,16 @@ int main(int argc, char *argv[])
 	scalar epsilon = 0;
 	scalar epsilonPrev = 0;
 
+	//Info<< "Tw = " << Tw << endl;
+	//Info<< "TSat = " << TSat << endl;
+	//Info<< "hEvap = " << hEvap << endl;
+	//Info<< "rho1 = " << rho1 << endl;
+	//Info<< "rho2 = " << rho2 << endl;
+	//Info<< "cp1 = " << cp1 << endl;
+	//Info<< "cp2 = " << cp2 << endl;
+	//Info<< "k1 = " << k1 << endl;
+	//Info<< "k2 = " << k2 << endl;
+
 	if (phaseChangeType == "evaporation")
 	{
 		LHS = cp2*(Tw - TSat)/hEvap/Foam::sqrt(Foam::constant::mathematical::pi);

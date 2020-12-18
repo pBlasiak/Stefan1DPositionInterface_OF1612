@@ -6,7 +6,7 @@ EXE_INC = \
     -I$(LIB_SRC)/transportModels/incompressible/singlePhaseTransportModel \
     -I$(LIB_SRC)/transportModels/twoPhaseMixture/lnInclude \
     -I$(LIB_SRC)/transportModels/incompressible/lnInclude \
-    -I$(WM_PROJECT_USER_DIR)/applications/solvers/multiphase/interCondEvapPhaseChangeFoam/phaseChangeTwoPhaseMixtures/lnInclude \
+    -I$(WM_PROJECT_USER_DIR)/applications/solvers/multiphase/interBoilCondPhaseChangeFoam/phaseChangeTwoPhaseMixtures/lnInclude \
     -I$(LIB_SRC)/finiteVolume/lnInclude
 
 EXE_LIBS = \
