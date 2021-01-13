@@ -157,12 +157,12 @@ int main(int argc, char *argv[])
         Info<< "Time = " << runTime.timeName() << endl;
         mesh.readUpdate();
 
-		Info<< "Reading field alpha.water\n" << endl;
+		Info<< "Reading field alpha." << mixture->phase1Name() << endl;
     	volScalarField alphal
     	(
     	    IOobject
     	    (
-    	        "alpha.water",
+				"alpha." + mixture->phase1Name(),
     	        runTime.timeName(),
     	        mesh,
     	        IOobject::MUST_READ,
