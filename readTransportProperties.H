@@ -12,5 +12,7 @@ IOdictionary Stefan1DInterfacePositionDict
 
 // Phase change type
 word phaseChangeType(Stefan1DInterfacePositionDict.lookup("phaseChangeType"));
+// Automatic set of starting value for epsilon
+bool epsilonStartingValue(Stefan1DInterfacePositionDict.lookupOrDefault("epsilonStartingValue", false));
 // Wall temperature
 dimensionedScalar Tw(Stefan1DInterfacePositionDict.lookup("Tw"));

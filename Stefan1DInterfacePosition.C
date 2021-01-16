@@ -43,7 +43,6 @@ Application
 Description
     Calculates and writes the position of the interface for one dimensional
 	Stefan problem. 
-    Based on wallHeatFlux with changes to allow it on incompressible flows
 \*---------------------------------------------------------------------------*/
 
 #include "fvCFD.H"
@@ -98,26 +97,10 @@ int main(int argc, char *argv[])
 
 	const label maxIterNr = 20000;
 	label iter = 0;
-	//const scalar Tw = 463.03;
-	//const scalar TSat = 453.03;
-	//const scalar cpv = 2.71E+003;
-	//const scalar rhov = 5.145;
-	//const scalar kappav = 0.0364;
-	//const scalar hfg = 2014580;
 	const scalar tol = 1e-12;
 	dimensionedScalar LHS;
-	scalar epsilon = 0;
+	scalar epsilon = 0.1; // guess of starting value
 	scalar epsilonPrev = 0;
-
-	//Info<< "Tw = " << Tw << endl;
-	//Info<< "TSat = " << TSat << endl;
-	//Info<< "hEvap = " << hEvap << endl;
-	//Info<< "rho1 = " << rho1 << endl;
-	//Info<< "rho2 = " << rho2 << endl;
-	//Info<< "cp1 = " << cp1 << endl;
-	//Info<< "cp2 = " << cp2 << endl;
-	//Info<< "k1 = " << k1 << endl;
-	//Info<< "k2 = " << k2 << endl;
 
 	if (phaseChangeType == "evaporation")
 	{
@@ -135,8 +118,12 @@ int main(int argc, char *argv[])
 			<< exit(FatalError);
 	}
 
-	Info << "Type the starting value for epsilon:" << endl;	
-	std::cin >> epsilon;
+	if (epsilonStartingValue)  
+	{
+	    Info << "Type the starting value for epsilon:" << endl;	
+	    std::cin >> epsilon;
+	}
+	
 
 	do 
 	{
