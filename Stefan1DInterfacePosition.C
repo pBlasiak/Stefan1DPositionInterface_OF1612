@@ -43,6 +43,7 @@ Application
 Description
     Calculates and writes the position of the interface for one dimensional
 	Stefan problem. 
+	It is assumed that the interface moves in the x direction.
 \*---------------------------------------------------------------------------*/
 
 #include "fvCFD.H"
