@@ -167,17 +167,22 @@ int main(int argc, char *argv[])
    
 	    interfacePosition = sum(mag(gradAlphal)*mesh.C().component(0))/sum(mag(gradAlphal));
 
-	    Info<<"Interface position for time " 
-			<< runTime.timeName() 
-			<< " is equal to: " 
-			<< interfacePosition.value() 
-			<< " [m]"
-			<< endl;
-
-	    Info<< "\nSaving the results to IFposition.txt\n" << endl;
 
 		if (phaseChangeType == "evaporation")
 		{
+			Info<<"Interface position for time " 
+				<< runTime.timeName() 
+				<< " is equal to: " 
+				<< interfacePosition.value() 
+				<< " [m]"
+				<< " (error: "
+				<< mag(interfacePosition.value() - deltaInter(epsilon,k2, rho2, cp2, runTime.value()).value())/
+						mag(deltaInter(epsilon, k2, rho2, cp2, runTime.value()).value() + VSMALL)*100
+				<< "%)"
+				<< endl;
+
+	    	Info<< "\nSaving the results to IFposition.txt\n" << endl;
+
 			IFfile << runTime.timeName() 
 	  		     << "\t" 
 	  			 << interfacePosition.value() 
@@ -190,6 +195,19 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
+			Info<<"Interface position for time " 
+				<< runTime.timeName() 
+				<< " is equal to: " 
+				<< interfacePosition.value() 
+				<< " [m]"
+				<< " (error: "
+				<< mag(interfacePosition.value() - deltaInter(epsilon, k1, rho1, cp1, runTime.value()).value())/
+						mag(deltaInter(epsilon, k1, rho1, cp1, runTime.value()).value() + VSMALL)*100
+				<< "%)"
+				<< endl;
+
+	    	Info<< "\nSaving the results to IFposition.txt\n" << endl;
+
 			IFfile << runTime.timeName() 
 	  		     << "\t" 
 	  			 << interfacePosition.value() 
